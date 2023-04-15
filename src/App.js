@@ -31,6 +31,113 @@ function App() {
         ? 'hsl(0, 0%, 90%)'
         : 'hsl(268, 75%, 9%)';
   }, [bgColor]);
+  const [expression, setExpression] = useState('');
+  const getResult = (expression) => {
+    const operand = [];
+    const operator = [];
+    let tempOperand = '';
+    for (let i = 0; i < expression.length; i++) {
+      if (
+        expression.charAt(i) === '+' ||
+        expression.charAt(i) === '-' ||
+        expression.charAt(i) === 'x' ||
+        expression.charAt(i) === '/'
+      ) {
+        operator.push(expression.charAt(i));
+        if (tempOperand.includes('.')) {
+          operand.push(parseFloat(tempOperand).toFixed(2));
+        } else {
+          operand.push(parseInt(tempOperand));
+        }
+
+        tempOperand = '';
+      } else {
+        tempOperand = tempOperand + expression.charAt(i);
+      }
+    }
+    if (tempOperand) {
+      if (tempOperand.includes('.')) {
+        operand.push(parseFloat(tempOperand).toFixed(2));
+      } else {
+        operand.push(parseInt(tempOperand));
+      }
+    }
+    let result = operand[0];
+    for (let i = 1; i < operand.length; i++) {
+      let operatorExp = operator.shift();
+      if (operatorExp === '+') {
+        result = operand[i] + result;
+      } else if (operatorExp === '-') {
+        result = result - operand[i];
+      } else if (operatorExp === 'x') {
+        result = result * operand[i];
+      } else if (operatorExp === '/') {
+        result = result / operand[i];
+      }
+    }
+    setExpression(result);
+  };
+
+  const screenResultHandler = (key) => {
+    switch (key) {
+      case 0:
+        setExpression(expression + 0);
+        return;
+      case 1:
+        setExpression(expression + 1);
+        return;
+      case 2:
+        setExpression(expression + 2);
+        return;
+      case 3:
+        setExpression(expression + 3);
+        return;
+      case 4:
+        setExpression(expression + 4);
+        return;
+      case 5:
+        setExpression(expression + 5);
+        return;
+      case 6:
+        setExpression(expression + 6);
+        return;
+      case 7:
+        setExpression(expression + 7);
+        return;
+      case 8:
+        setExpression(expression + 8);
+        return;
+      case 9:
+        setExpression(expression + 9);
+        return;
+      case '.':
+        setExpression(expression + '.');
+        return;
+      case '+':
+        setExpression(expression + '+');
+        return;
+      case '-':
+        setExpression(expression + '-');
+        return;
+      case 'x':
+        setExpression(expression + 'x');
+        return;
+      case '/':
+        setExpression(expression + '/');
+        return;
+      case 'DEL':
+        setExpression(expression.substring(0, expression.length - 1));
+        return;
+      case 'RESET':
+        setExpression('');
+        return;
+      case '=':
+        getResult(expression);
+        return;
+      default:
+        return;
+    }
+  };
 
   return (
     <div className='calculator-container'>
@@ -132,7 +239,7 @@ function App() {
               : 'hsl(52, 100%, 62%)',
         }}
       >
-        12
+        {expression}
       </div>
       <div
         className='calculator-keypad'
@@ -173,6 +280,7 @@ function App() {
                   ? 'key-1'
                   : 'key-2'
               }
+              onClick={() => screenResultHandler(keys)}
             >
               {keys}
             </div>

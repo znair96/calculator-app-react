@@ -98,7 +98,7 @@
   color: #ffffff;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   padding-right: 24px;
 }
 .calculator-keypad {
@@ -226,4 +226,12 @@
 .del-key-2 {
   background: #56077c;
   box-shadow: inset 0px -4px 0px #be15f4;
+}
+@media screen and (min-width: 760px) {
+  .calculator-container {
+    padding: 30px 31px;
+    max-width: 540px;
+    margin: auto;
+    margin-top: 2.5rem;
+  }
 }

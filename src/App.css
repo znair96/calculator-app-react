@@ -234,4 +234,54 @@
     margin: auto;
     margin-top: 2.5rem;
   }
+  .del-key:hover {
+    background: #a2b2e1;
+    box-shadow: inset 0px -4px 0px #414e73;
+  }
+  .reset-key:hover {
+    background: #a2b2e1;
+    box-shadow: inset 0px -4px 0px #414e73;
+  }
+  .equal-key:hover {
+    background: #f96b5b;
+    box-shadow: inset 0px -4px 0px #93261a;
+  }
+  .key:hover {
+    background: #fffffe;
+    box-shadow: inset 0px -4px 0px #b3a497;
+  }
+
+  .del-key-1:hover {
+    background: #62b5bc;
+    box-shadow: inset 0px -4px 0px #1b6066;
+  }
+  .reset-key-1:hover {
+    background: #62b5bc;
+    box-shadow: inset 0px -4px 0px #1b6066;
+  }
+  .equal-key-1:hover {
+    background: #ff8a38;
+    box-shadow: inset 0px -4px 0px #873901;
+  }
+  .key-1:hover {
+    background: #ffffff;
+    box-shadow: inset 0px -4px 0px #a79e91;
+  }
+
+  .del-key-2:hover {
+    background: #8631af;
+    box-shadow: inset 0px -4px 0px #be15f4;
+  }
+  .reset-key-2:hover {
+    background: #8631af;
+    box-shadow: inset 0px -4px 0px #be15f4;
+  }
+  .equal-key-2:hover {
+    background: #93fff8;
+    box-shadow: inset 0px -4px 0px #6cf9f1;
+  }
+  .key-2:hover {
+    background: #6c34ac;
+    box-shadow: inset 0px -4px 0px #881c9e;
+  }
 }
